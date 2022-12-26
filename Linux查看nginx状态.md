@@ -5,34 +5,53 @@
 ### 一、查看是否启动
 场景例子：当发现网页无法正常访问时（开发环境、测试环境的网页），可以查看Nginx是否启动，方法有以下几种：
 
-1-- ps查看进程，利用nginx关键字过滤
+####  1-- ps查看进程，利用nginx关键字过滤
 
-    ps -aux | grep nginx
+  ```javascript  
+  
+  ps -aux | grep nginx 
+  
+  ```
 
-2--直接查看进程pid
+#### 2--直接查看进程pid
 
+  ```javascript  
+  
     ps -C nginx -o pid
-
+	
+  ```
+  
     这种直接返回pid的方式比较适合跟其他程序结合使用，比如在shell/python脚本中执行这个命令拿到pid，让后根据pid来判断Nginx是否启动。
 
 3--查看端口状态
 
     nginx默认服务端口是80，直接查看端口80是否被占用，被谁占用即可；
-
+	
+  ```javascript  
+  
     lsof -i:80
 
+```
+
     也可以通过查看80端口运行的程序来判断Nginx是否运行
-
+	
+  ```javascript  
+  
     netstat -anp | grep :80
-
-二、启动、停止、重启Nginx
+	
+```
+#### 二、启动、停止、重启Nginx
 启动nginx：nginx安装目录地址 -c nginx配置文件地址
 
 停止nginx:
-
+  ```javascript  
+  
     1:ps -ef | grep nginx 查出进程id， kill -9 进程id 杀死进程
 
     2:pkill -9 nginx  强制暂停
+	
+	```
+
 
 重启nginx：
 

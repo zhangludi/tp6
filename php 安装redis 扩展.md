@@ -1,3 +1,18 @@
+### cnetos安装redis
+
+yum install redis
+
+重新启动
+
+```
+sudo systemctl restart redis
+
+sudo systemctl status redis
+
+ss -an | grep 6379
+
+```
+
 1、下载redis扩展，php redis 的扩展一定要与你的PHP版本相对应，否则安装后是不能使用的。
 版本不对时重启PHP fpm 时会报错：
 

@@ -38,12 +38,8 @@ Bash
 
 ```
 
-
-
-/usr/local/php8/phpize
-
-./configure --with-php-config=/usr/local/php8/bin/php-config
-
+phpize
+./configure --with-php-config=/usr/local/php8.0.1/bin/php-config
 make && make install
 
 ````
@@ -67,5 +63,24 @@ extension=redis.so
 
 ````
 service php-fpm restart
+报错：
+
+
 
 ````
+
+
+Centos7解决php: error while loading shared libraries: libonig.so.2报错
+2020-08-16 分类：Linux / Web / 服务器 阅读(2896)
+1、故障背景：
+CentOS7 执行yum -y update 命令升级系统后，起初测试正常，在执行“php -V”测试报如下错误：
+
+2、多方查找资料后，执行如下命令：
+
+复制
+
+```
+ln -s /usr/lib64/libonig.so /usr/lib64/libonig.so.2
+
+```
+最后重启PHP后，故障解决。
